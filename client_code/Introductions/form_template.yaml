@@ -1,0 +1,43 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: ColumnPanel
+  properties: {col_widths: '{}'}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_1
+    layout_properties: {grid_position: 'JLLDLG,PWZFDQ'}
+    components:
+    - type: RepeatingPanel
+      properties: {item_template: Introductions.Players}
+      name: players
+      layout_properties: {grid_position: 'CSSIBQ,ETXYCU'}
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_2
+    layout_properties: {grid_position: 'UVUQSN,VOCYLW'}
+    components:
+    - type: Button
+      properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Continue, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:rocket'}
+      name: continue_btn
+      layout_properties: {grid_position: 'IOZDBK,JGOWFW'}
+      event_bindings: {click: go_to_game}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Introductions, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_1
+  layout_properties: {slot: title}

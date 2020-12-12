@@ -2,12 +2,12 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {auto_create_missing_columns: false}
+startup: {type: form, module: GameFlow}
 package_name: Werewolf
 allow_embedding: false
 name: Werewolf
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox}
 metadata: {}
-startup_form: GameCreator
 db_schema:
 - name: players
   id: 94355
@@ -41,7 +41,7 @@ db_schema:
       backend: anvil.tables.Row
       admin_ui: {order: 3, width: 200}
       table_id: 94355
-  access: {python_name: players, app_id: ZAF6VZLDTRRGBVO7, server: full, client: none,
+  access: {python_name: players, app_id: ZAF6VZLDTRRGBVO7, server: full, client: full,
     table_mapping_name: null, table_mapping_id: null, table_id: 94355}
 - name: games
   id: 94354
@@ -59,6 +59,10 @@ db_schema:
       name: healer
       type: bool
       admin_ui: {order: 1, width: 200}
+    l0+axU2_Br0=:
+      name: phase
+      type: string
+      admin_ui: {order: 4, width: 200}
     qPFokFBgiW0=:
       name: lovers
       type: bool

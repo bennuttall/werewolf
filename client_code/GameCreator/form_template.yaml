@@ -21,7 +21,7 @@ components:
       name: players_title
       layout_properties: {grid_position: 'XEWDUR,TRVVFJ'}
     - type: RepeatingPanel
-      properties: {item_template: GameCreator.AddNewPlayer}
+      properties: {item_template: GameCreator.Players}
       name: players
       layout_properties: {grid_position: 'EVGHPS,XWYZDO'}
   - type: ColumnPanel
