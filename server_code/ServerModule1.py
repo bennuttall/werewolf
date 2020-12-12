@@ -21,13 +21,14 @@ def save_new_game(players, num_wolves, healer, seer, lovers):
   if seer:
     the_seer = [player for player in players if player['role'] == 'villager'][0]
     the_seer['role'] = 'seer'
-  if lovers:
-    random.shuffle(players)
-    the_lovers = players[:2]
-    
     
   for player in players:
     app_tables.players.add_row(game=game, name=player['name'], alive=True, role=player['role'])
-  for lover in the_lovers:
-      lover['role'] = 'lover'
+    
+  if lovers:
+    random.shuffle(players)
+    the_lovers = players[:2]
     the_lovers[1]['lover'], the_lovers[0]['lover'] = the_lovers
+    for lover in lovers:
+      row = app_tables.players.get(game=game, name=lover['name'])
+      
