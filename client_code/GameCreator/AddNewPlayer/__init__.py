@@ -8,3 +8,7 @@ class AddNewPlayer(AddNewPlayerTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+
+  def delete_player(self, **event_args):
+    self.parent.raise_event('x-delete-player', item=self.item)
+    self.remove_from_parent()

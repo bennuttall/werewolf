@@ -45,7 +45,7 @@ db_schema:
       name: game
       type: liveObject
       backend: anvil.tables.Row
-      admin_ui: {order: 5, width: 200}
+      admin_ui: {order: -1, width: 200}
       table_id: 94354
     yN1s4ba4O1w=:
       name: lover
