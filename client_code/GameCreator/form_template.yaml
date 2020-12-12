@@ -43,9 +43,9 @@ components:
         background: '', bold: false, underline: false}
       name: new_player_name
       layout_properties: {grid_position: 'FLUVGS,CXFCEY'}
-      event_bindings: {pressed_enter: add_player}
+      event_bindings: {pressed_enter: add_player, change: enable_add_player_btn}
     - type: Button
-      properties: {role: secondary-color, align: left, tooltip: '', border: '', enabled: true,
+      properties: {role: secondary-color, align: left, tooltip: '', border: '', enabled: false,
         foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: 'fa:plus'}
@@ -93,7 +93,7 @@ components:
         include_placeholder: false
       name: num_wolves
       layout_properties: {grid_position: 'IROSKC,ITREPQ'}
-      event_bindings: {change: enable_start_btn}
+      event_bindings: {}
     - type: Label
       properties: {}
       name: recommended_wolves

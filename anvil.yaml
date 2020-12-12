@@ -9,16 +9,6 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-sandb
 metadata: {}
 startup_form: GameCreator
 db_schema:
-- name: roles
-  id: 94356
-  python_name: roles
-  columns:
-    O1p0OLyw32U=:
-      name: role
-      type: string
-      admin_ui: {order: 0, width: 200}
-  access: {python_name: roles, app_id: ZAF6VZLDTRRGBVO7, server: full, client: none,
-    table_mapping_name: null, table_mapping_id: null, table_id: 94356}
 - name: players
   id: 94355
   python_name: players
@@ -31,12 +21,6 @@ db_schema:
       name: profession
       type: string
       admin_ui: {order: 1, width: 200}
-    _oHbR6dpDIA=:
-      name: role
-      type: liveObject
-      backend: anvil.tables.Row
-      admin_ui: {order: 2, width: 200}
-      table_id: 94356
     bbLXDMHMEfE=:
       name: name
       type: string
@@ -47,6 +31,10 @@ db_schema:
       backend: anvil.tables.Row
       admin_ui: {order: -1, width: 200}
       table_id: 94354
+    xjk2VMDsUo4=:
+      name: role
+      type: string
+      admin_ui: {order: 5, width: 200}
     yN1s4ba4O1w=:
       name: lover
       type: liveObject

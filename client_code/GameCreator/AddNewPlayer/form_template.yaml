@@ -12,12 +12,13 @@ components:
   layout_properties: {grid_position: 'ZSLVNC,OQYXSV'}
   data_bindings:
   - {property: text, code: 'self.item[''name'']', writeback: true}
+  event_bindings: {lost_focus: validate_name}
 - type: Button
   properties: {role: secondary-color, align: left, tooltip: '', border: '', enabled: true,
     foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
     icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
     underline: false, icon: 'fa:trash'}
-  name: button_1
+  name: delete_btn
   layout_properties: {grid_position: 'ZSLVNC,UQQXOU'}
   event_bindings: {click: delete_player}
 is_package: true

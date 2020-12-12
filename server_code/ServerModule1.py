@@ -11,7 +11,8 @@ def save_new_game(players, num_wolves, healer, seer, lovers):
   game = app_tables.games.add_row(dt=datetime.now(), healer=healer, seer=seer, lovers=lovers)
   for player in players:
     player['role'] = 'villager'
-  players.shuffle()
+    player['lover'] = None
+  random.shuffle(players)
   for wolf in players[:num_wolves]:
     wolf['role'] = 'werewolf'
   if healer:
@@ -21,10 +22,12 @@ def save_new_game(players, num_wolves, healer, seer, lovers):
     the_seer = [player for player in players if player['role'] == 'villager'][0]
     the_seer['role'] = 'seer'
   if lovers:
-    the_lovers = [player for player in players if player['role'] == 'villager'][:1]
-    for lover in the_lovers:
-      lover['role'] = 'lover'
+    random.shuffle(players)
+    the_lovers = players[:2]
+    
     
   for player in players:
     app_tables.players.add_row(game=game, name=player['name'], alive=True, role=player['role'])
-  
+  for lover in the_lovers:
+      lover['role'] = 'lover'
+    the_lovers[1]['lover'], the_lovers[0]['lover'] = the_lovers

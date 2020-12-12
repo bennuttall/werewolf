@@ -13,3 +13,7 @@ class AddNewPlayer(AddNewPlayerTemplate):
   def delete_player(self, **event_args):
     self.parent.raise_event('x-delete-player', item=self.item)
     self.remove_from_parent()
+
+  def validate_name(self, **event_args):
+    if self.name.text == '':
+      self.delete_player()
