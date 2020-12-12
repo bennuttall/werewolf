@@ -1,5 +1,6 @@
 from ._anvil_designer import GameCreatorTemplate
 from anvil import *
+import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
@@ -55,5 +56,5 @@ class GameCreator(GameCreatorTemplate):
     self.players_title.text = f"Players ({n})"
 
   def save_new_game(self, **event_args):
-    
+    anvil.server.call('save_new_game', self.)
 
