@@ -1,0 +1,18 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"OQYXSV":20,"UQQXOU":40}'}
+  data_bindings: []
+components:
+- type: TextBox
+  properties: {}
+  name: name
+  layout_properties: {grid_position: 'ZSLVNC,OQYXSV'}
+- type: Button
+  properties: {role: secondary-color, align: left, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: 'fa:trash'}
+  name: button_1
+  layout_properties: {grid_position: 'ZSLVNC,UQQXOU'}
+is_package: true
+item_type: {table_id: 94355}

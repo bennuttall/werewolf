@@ -1,6 +1,68 @@
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {auto_create_missing_columns: false}
+package_name: Werewolf
 allow_embedding: false
-package_name: Material_Design_4
-name: Material Design 4
-startup_form: Form1
+name: Werewolf
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox}
-services: []
+metadata: {}
+startup_form: GameCreator
+db_schema:
+- name: roles
+  id: 94356
+  python_name: roles
+  columns:
+    O1p0OLyw32U=:
+      name: role
+      type: string
+      admin_ui: {order: 0, width: 200}
+  access: {python_name: roles, app_id: ZAF6VZLDTRRGBVO7, server: full, client: none,
+    table_mapping_name: null, table_mapping_id: null, table_id: 94356}
+- name: players
+  id: 94355
+  python_name: players
+  columns:
+    EmIPLds7E2M=:
+      name: alive
+      type: bool
+      admin_ui: {order: 4, width: 200}
+    HS8e3S+WzYY=:
+      name: profession
+      type: string
+      admin_ui: {order: 1, width: 200}
+    _oHbR6dpDIA=:
+      name: role
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 2, width: 200}
+      table_id: 94356
+    bbLXDMHMEfE=:
+      name: name
+      type: string
+      admin_ui: {order: 0, width: 200}
+    eM2HsiUb7Fw=:
+      name: game
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 5, width: 200}
+      table_id: 94354
+    yN1s4ba4O1w=:
+      name: lover
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 3, width: 200}
+      table_id: 94355
+  access: {python_name: players, app_id: ZAF6VZLDTRRGBVO7, server: full, client: none,
+    table_mapping_name: null, table_mapping_id: null, table_id: 94355}
+- name: games
+  id: 94354
+  python_name: games
+  columns:
+    VxulshdbAaU=:
+      name: dt
+      type: datetime
+      admin_ui: {order: 0, width: 200}
+  access: {python_name: games, app_id: ZAF6VZLDTRRGBVO7, server: full, client: none,
+    table_mapping_name: null, table_mapping_id: null, table_id: 94354}
+renamed: true
