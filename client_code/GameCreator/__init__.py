@@ -56,5 +56,10 @@ class GameCreator(GameCreatorTemplate):
     self.players_title.text = f"Players ({n})"
 
   def save_new_game(self, **event_args):
-    anvil.server.call('save_new_game', self.)
+    anvil.server.call('save_new_game',
+                       players=self.players.items,
+                       wolves=self.num_wolves.text,
+                       healer=self.healer.checked,
+                       seer=self.healer.checked,
+                       lovers=self.healer.checked)
 
