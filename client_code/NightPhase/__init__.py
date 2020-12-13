@@ -14,11 +14,8 @@ class NightPhase(NightPhaseTemplate):
     villager_names = [player['name'] for player in players if player['role'] != 'werewolf']
     non_seer_names = [player['name'] for player in players if player['role'] != 'seer']
     self.player_killed.items = villager_names
-    self.player_killed.placeholder = "Select..."
     self.player_healed.items = player_names
-    self.player_healed.placeholder = "Select..."
     self.player_seen.items = player_names
-    self.player_seen.placeholder = "Select..."
 
   def enable_continue_btn(self, **event_args):
     selections = (self.player_killed, self.player_healed, self.player_seen)
@@ -43,8 +40,8 @@ class NightPhase(NightPhaseTemplate):
     players_killed = anvil.server.call(
       'process_night_phase',
       game=self.game,
-      player_killed=self.player_killed.selected_value,
-      player_healed=self.player_healed.selected_value,
+      killed_player_name=self.player_killed.selected_value,
+      healed_player_name=self.player_healed.selected_value,
     )
     open_form('DayPhase', game=self.game, players_killed=players_killed)
 

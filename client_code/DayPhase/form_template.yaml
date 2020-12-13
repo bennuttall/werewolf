@@ -18,9 +18,40 @@ components:
       name: players_killed
       layout_properties: {grid_position: 'OCSEJJ,HPLFDE'}
   - type: ColumnPanel
-    properties: {role: card}
+    properties: {role: card, col_widths: '{}'}
     name: card_2
     layout_properties: {grid_position: 'EWQFGH,UDPEWU'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Player chosen to be lynched:', font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: label_2
+      layout_properties: {grid_position: 'ZDQOQD,RSYQJL'}
+    - type: DropDown
+      properties:
+        role: null
+        align: full
+        tooltip: ''
+        placeholder: Select...
+        border: ''
+        enabled: true
+        foreground: ''
+        items: []
+        visible: true
+        font_size: null
+        font: ''
+        spacing_above: small
+        spacing_below: small
+        italic: false
+        background: ''
+        bold: false
+        underline: false
+        include_placeholder: true
+      name: player_lynched
+      layout_properties: {grid_position: 'ZDQOQD,SQIEPL'}
+      event_bindings: {change: enable_continue_btn}
   - type: ColumnPanel
     properties: {role: card, col_widths: '{}'}
     name: card_3
