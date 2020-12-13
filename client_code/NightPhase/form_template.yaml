@@ -4,9 +4,61 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
+  components:
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_1
+    layout_properties: {grid_position: 'PPGEQB,LLZOJC'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Wolves chosen to kill:', font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: label_2
+      layout_properties: {grid_position: 'ASTFVO,TEXTUO'}
+    - type: DropDown
+      properties: {}
+      name: player_killed
+      layout_properties: {grid_position: 'ASTFVO,YCJSAX'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Healer chosen to heal:', font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: label_3
+      layout_properties: {grid_position: 'KHIPYS,TLKDBG'}
+    - type: DropDown
+      properties: {}
+      name: player_healed
+      layout_properties: {grid_position: 'KHIPYS,ZBHDRS'}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Seer chosen to see:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_4
+      layout_properties: {grid_position: 'MMQDOL,XZGLOU'}
+    - type: DropDown
+      properties: {}
+      name: player_seen
+      layout_properties: {grid_position: 'MMQDOL,WMXDTB'}
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_2
+    layout_properties: {grid_position: 'GPDFFB,NKTNQV'}
+    components:
+    - type: Button
+      properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Continue, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      name: continue_btn
+      layout_properties: {grid_position: 'HVEVPJ,LBAQER'}
+      event_bindings: {click: continue_to_day}
 - type: FlowPanel
   properties: {}
   name: navbar_links

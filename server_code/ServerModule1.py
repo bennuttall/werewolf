@@ -8,7 +8,7 @@ import random
 
 @anvil.server.callable
 def save_new_game(players, num_wolves, healer, seer, lovers):
-  game = app_tables.games.add_row(dt=datetime.now(), healer=healer, seer=seer, lovers=lovers)
+  game = app_tables.games.add_row(dt=datetime.now(), healer=healer, seer=seer, lovers=lovers, phase='introductions')
   for player in players:
     player['role'] = 'villager'
     player['lover'] = None
@@ -38,12 +38,20 @@ def save_new_game(players, num_wolves, healer, seer, lovers):
     
 @anvil.server.callable
 def get_latest_game():
-  return list(app_tables.games.search())[-1]
+  games = list(app_tables.games.search())
+  if games:
+    return games[-1]
     
 @anvil.server.callable
 def get_game_players(game):
   players = list(app_tables.players.search(game=game))
   random.shuffle(players)
+  return players
+    
+@anvil.server.callable
+def get_live_players(game):
+  players = list(app_tables.players.search(game=game, alive=True))
+  print(players)
   return players
   
   

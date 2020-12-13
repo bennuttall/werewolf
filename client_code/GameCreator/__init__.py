@@ -69,6 +69,6 @@ class GameCreator(GameCreatorTemplate):
                        healer=self.healer.checked,
                        seer=self.healer.checked,
                        lovers=self.healer.checked)
-    open_form('Introductions', game)
+    open_form('Introductions', game=game)
 
 

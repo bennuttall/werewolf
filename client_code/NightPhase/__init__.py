@@ -9,5 +9,10 @@ class NightPhase(NightPhaseTemplate):
   def __init__(self, game=None, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.game = anvil.server.call('get_latest_game') if game is None else game
-    
+    self.game = game
+    players = anvil.server.call('get_live_players', self.game)
+#     self.player_killed.items = players
+
+  def continue_to_day(self, **event_args):
+    open_form('DayPhase')
+
