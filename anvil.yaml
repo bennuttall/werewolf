@@ -8,6 +8,7 @@ allow_embedding: false
 name: Werewolf
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox}
 metadata: {}
+startup_form: GameCreator
 db_schema:
 - name: players
   id: 94355
