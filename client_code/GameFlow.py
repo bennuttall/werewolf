@@ -17,4 +17,4 @@ if game:
 else:
   form = 'GameCreator'
   
-open_form(form)
+open_form(form, game=game)

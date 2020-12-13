@@ -51,10 +51,13 @@ def get_game_players(game):
 @anvil.server.callable
 def get_live_players(game):
   players = list(app_tables.players.search(game=game, alive=True))
-  print(players)
   return players
+    
+@anvil.server.callable
+def set_game_phase(game, phase):
+  game.update(phase=phase)
   
-  
+
   
   
   

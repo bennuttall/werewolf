@@ -21,9 +21,29 @@ components:
       name: label_2
       layout_properties: {grid_position: 'ASTFVO,TEXTUO'}
     - type: DropDown
-      properties: {}
+      properties:
+        role: null
+        align: full
+        tooltip: ''
+        placeholder: ''
+        border: ''
+        enabled: true
+        foreground: ''
+        items: []
+        visible: true
+        font_size: null
+        font: ''
+        spacing_above: small
+        spacing_below: small
+        italic: false
+        background: ''
+        bold: false
+        underline: false
+        include_placeholder: true
       name: player_killed
       layout_properties: {grid_position: 'ASTFVO,YCJSAX'}
+      data_bindings: []
+      event_bindings: {change: enable_continue_btn}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Healer chosen to heal:', font_size: null, font: '',
@@ -32,9 +52,28 @@ components:
       name: label_3
       layout_properties: {grid_position: 'KHIPYS,TLKDBG'}
     - type: DropDown
-      properties: {}
+      properties:
+        role: null
+        align: full
+        tooltip: ''
+        placeholder: ''
+        border: ''
+        enabled: true
+        foreground: ''
+        items: []
+        visible: true
+        font_size: null
+        font: ''
+        spacing_above: small
+        spacing_below: small
+        italic: false
+        background: ''
+        bold: false
+        underline: false
+        include_placeholder: true
       name: player_healed
       layout_properties: {grid_position: 'KHIPYS,ZBHDRS'}
+      event_bindings: {change: enable_continue_btn}
     - type: Label
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: 'Seer chosen to see:', font_size: null, font: '', spacing_above: small,
@@ -43,19 +82,54 @@ components:
       name: label_4
       layout_properties: {grid_position: 'MMQDOL,XZGLOU'}
     - type: DropDown
-      properties: {}
+      properties:
+        role: null
+        align: full
+        tooltip: ''
+        placeholder: ''
+        border: ''
+        enabled: true
+        foreground: ''
+        items: []
+        visible: true
+        font_size: null
+        font: ''
+        spacing_above: small
+        spacing_below: small
+        italic: false
+        background: ''
+        bold: false
+        underline: false
+        include_placeholder: true
       name: player_seen
       layout_properties: {grid_position: 'MMQDOL,WMXDTB'}
+      event_bindings: {change: enable_continue_btn}
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_3
+    layout_properties: {grid_position: 'WEYJYP,UDYGSB'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Inform the seer:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_9
+      layout_properties: {grid_position: 'TUIHBP,JFKAIX'}
+    - type: Label
+      properties: {}
+      name: label_10
+      layout_properties: {grid_position: 'TUIHBP,BTDKCA'}
   - type: ColumnPanel
     properties: {role: card, col_widths: '{}'}
     name: card_2
     layout_properties: {grid_position: 'GPDFFB,NKTNQV'}
     components:
     - type: Button
-      properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: true,
+      properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: false,
         foreground: '', visible: true, text: Continue, font_size: null, font: '',
         spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false, icon: ''}
+        background: '', bold: false, underline: false, icon: 'fa:rocket'}
       name: continue_btn
       layout_properties: {grid_position: 'HVEVPJ,LBAQER'}
       event_bindings: {click: continue_to_day}

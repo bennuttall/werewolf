@@ -13,5 +13,5 @@ class Introductions(IntroductionsTemplate):
     self.players.items = anvil.server.call('get_game_players', self.game)
 
   def go_to_game(self, **event_args):
-    anvil.server.call('do_introducti')
+    anvil.server.call('set_game_phase', game=self.game, phase='night')
     open_form('NightPhase', game=self.game)
