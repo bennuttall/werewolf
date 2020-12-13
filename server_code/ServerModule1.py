@@ -56,11 +56,26 @@ def get_live_players(game):
 @anvil.server.callable
 def set_game_phase(game, phase):
   game.update(phase=phase)
-  
-
-  
-  
-  
+ 
+@anvil.server.callable
+def get_player(game, player_name):
+  return app_tables.players.get(game=game, name=player_name)
+ 
+@anvil.server.callable
+def process_night_phase(game, killed_player_name, healed_player_name):
+  killed_players = []
+  if killed_player_name != healed_player_name:
+    killed_player = app_tables.players.get(game=game, name=killed_player_name)
+    killed_player.update(alive=False)
+    killed_players.append(killed_player['name'])
+    killed_lover = killed_player['lover']
+    if killed_lover:
+      killed_lover.update(alive=False)
+      killed_players.append(killed_lover['name'])
+      
+  game.update(phase='day')
+      
+  return killed_players
   
   
   

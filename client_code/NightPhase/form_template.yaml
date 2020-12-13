@@ -103,10 +103,12 @@ components:
         include_placeholder: true
       name: player_seen
       layout_properties: {grid_position: 'MMQDOL,WMXDTB'}
-      event_bindings: {change: enable_continue_btn}
+      event_bindings: {change: reveal_player_to_seer}
   - type: ColumnPanel
-    properties: {role: card, col_widths: '{}'}
-    name: card_3
+    properties: {role: card, tooltip: '', border: '', foreground: '', visible: false,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: reveal_card
     layout_properties: {grid_position: 'WEYJYP,UDYGSB'}
     components:
     - type: Label
@@ -118,7 +120,7 @@ components:
       layout_properties: {grid_position: 'TUIHBP,JFKAIX'}
     - type: Label
       properties: {}
-      name: label_10
+      name: seer_reveal
       layout_properties: {grid_position: 'TUIHBP,BTDKCA'}
   - type: ColumnPanel
     properties: {role: card, col_widths: '{}'}

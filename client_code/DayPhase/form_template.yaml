@@ -4,9 +4,35 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
+  components:
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_1
+    layout_properties: {grid_position: 'QGWBFO,LIEASB'}
+    components:
+    - type: Label
+      properties: {}
+      name: players_killed
+      layout_properties: {grid_position: 'OCSEJJ,HPLFDE'}
+  - type: ColumnPanel
+    properties: {role: card}
+    name: card_2
+    layout_properties: {grid_position: 'EWQFGH,UDPEWU'}
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_3
+    layout_properties: {grid_position: 'FLALFH,LRZJRI'}
+    components:
+    - type: Button
+      properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: false,
+        foreground: '', visible: true, text: Continue, font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'fa:rocket'}
+      name: continue_btn
+      layout_properties: {grid_position: 'FELBGH,GUNMIA'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
