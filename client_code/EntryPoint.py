@@ -10,11 +10,17 @@ phases = {
   'introductions': 'Introductions',
   'night': 'NightPhase',
   'day': 'DayPhase',
+  'over': 'GameOver',
 }
 
 if game:
-  form = phases[game['phase']]
+  winner = anvil.server.call('get_winner')
+  if winner:
+    form = 'GameOver'
+    anvil.server.call('set_game_phase', 'over')
+  else:
+    form = phases[game['phase']]
 else:
   form = 'GameCreator'
   
-open_form(form, game=game)
+open_form(form)

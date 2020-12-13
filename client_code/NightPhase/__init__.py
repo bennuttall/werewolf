@@ -6,10 +6,11 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class NightPhase(NightPhaseTemplate):
-  def __init__(self, game=None, **properties):
+  def __init__(self, players_killed=None, **properties):
     self.init_components(**properties)
-    self.game = game
-    players = anvil.server.call('get_live_players', self.game)
+    players_killed_str = ', '.join(players_killed) if players_killed else 'None'
+    self.players_killed.text = f"Players killed: {players_killed_str}"
+    players = anvil.server.call('get_live_players')
     player_names = [player['name'] for player in players]
     villager_names = [player['name'] for player in players if player['role'] != 'werewolf']
     non_seer_names = [player['name'] for player in players if player['role'] != 'seer']
@@ -30,7 +31,7 @@ class NightPhase(NightPhaseTemplate):
       self.enable_continue_btn()
     else:
       player = anvil.server.call(
-        'get_player', game=self.game, player_name=self.player_seen.selected_value
+        'get_player', player_name=self.player_seen.selected_value
       )
       self.seer_reveal.text = f"{player['name']} is a {player['role']}"
       self.reveal_card.visible = True
@@ -39,11 +40,15 @@ class NightPhase(NightPhaseTemplate):
   def continue_to_day(self, **event_args):
     players_killed = anvil.server.call(
       'process_night_phase',
-      game=self.game,
       killed_player_name=self.player_killed.selected_value,
       healed_player_name=self.player_healed.selected_value,
     )
-    open_form('DayPhase', game=self.game, players_killed=players_killed)
+    winner = anvil.server.call('get_winner')
+    if winner:
+      form = 'GameOver'    
+    else:
+      form = 'DayPhase'
+    open_form(form, players_killed=players_killed)
 
 
 

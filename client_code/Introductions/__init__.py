@@ -6,12 +6,11 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class Introductions(IntroductionsTemplate):
-  def __init__(self, game=None, **properties):
-    self.game = anvil.server.call('get_latest_game') if game is None else game
+  def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.players.items = anvil.server.call('get_game_players', self.game)
+    self.players.items = anvil.server.call('get_game_players')
 
-  def go_to_game(self, **event_args):
-    anvil.server.call('set_game_phase', game=self.game, phase='night')
-    open_form('NightPhase', game=self.game)
+  def continue_to_night(self, **event_args):
+    anvil.server.call('set_game_phase', phase='night')
+    open_form('NightPhase')

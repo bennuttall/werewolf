@@ -1,13 +1,32 @@
 is_package: true
 container:
   type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
+  properties: {tooltip: '', background: 'theme:Black', foreground: '', border: '',
+    visible: true, role: null, html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
   properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_4
+    layout_properties: {grid_position: 'IPHLDO,FNQQTX'}
+    components:
+    - type: form:Summary
+      properties: {}
+      name: summary
+      layout_properties: {grid_position: 'LCCJJF,LXHBBA'}
+  - type: ColumnPanel
+    properties: {role: card, col_widths: '{}'}
+    name: card_3
+    layout_properties: {grid_position: 'IAJWSA,FNCFXU'}
+    components:
+    - type: Label
+      properties: {}
+      name: players_killed
+      layout_properties: {grid_position: 'IHKGKP,DERDZO'}
   - type: ColumnPanel
     properties: {role: card, col_widths: '{}'}
     name: card_1

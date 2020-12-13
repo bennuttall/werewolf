@@ -2,12 +2,13 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {auto_create_missing_columns: false}
-startup: {type: module, module: GameFlow}
+startup: {type: module, module: EntryPoint}
 package_name: Werewolf
 allow_embedding: false
 name: Werewolf
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox}
 metadata: {}
+startup_form: DayPhase
 db_schema:
 - name: players
   id: 94355
