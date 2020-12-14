@@ -16,4 +16,4 @@ class Players(PlayersTemplate):
     c = confirm(title="Are you sure you want to remove this player from the game?")
     if c:
       anvil.server.call('remove_player_from_game', player=self.item)
-      self.parent.parent.raise_event('x-show-page')
+      alert("Please refresh the page to continue")

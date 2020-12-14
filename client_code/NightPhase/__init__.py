@@ -14,12 +14,27 @@ class NightPhase(NightPhaseTemplate):
     player_names = [player['name'] for player in players]
     villager_names = [player['name'] for player in players if player['role'] != 'werewolf']
     non_seer_names = [player['name'] for player in players if player['role'] != 'seer']
+    self.healer = len([player for player in players if player['role'] == 'healer']) == 1
+    self.seer = len([player for player in players if player['role'] == 'seer']) == 1
     self.player_killed.items = villager_names
-    self.player_healed.items = player_names
-    self.player_seen.items = player_names
+    if self.healer:
+      self.player_healed.items = player_names
+    else:
+      self.player_healed.enabled = False
+      self.player_healed.tooltip = "The healer is dead"
+    if self.seer:
+      self.player_seen.items = player_names
+    else:
+      self.player_seen.enabled = False
+      self.player_seen.tooltip = "The seer is dead"
 
   def enable_continue_btn(self, **event_args):
-    selections = (self.player_killed, self.player_healed, self.player_seen)
+    selections = [self.player_killed]
+    if self.healer:
+      selections += [self.player_healed]
+    if self.seer:
+      selections += [self.player_seen]
+      
     self.continue_btn.enabled = all(
       selection.selected_value is not None
       for selection in selections
