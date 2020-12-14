@@ -75,10 +75,15 @@ components:
       name: continue_btn
       layout_properties: {grid_position: 'FELBGH,GUNMIA'}
       event_bindings: {click: continue_to_night}
+  - type: form:Heartbeat
+    properties: {}
+    name: custom_2
+    layout_properties: {grid_position: 'QFYQAX,HNAXNE'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
+  components: []
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: Day phase, font_size: null, font: '', spacing_above: small, icon_align: left,

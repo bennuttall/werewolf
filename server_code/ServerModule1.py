@@ -117,6 +117,7 @@ def get_winner():
 def remove_player_from_game(player):
   player.update(alive=False)
   
-  
-  
+@anvil.server.callable
+def ping():
+  pass
   

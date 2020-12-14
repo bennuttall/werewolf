@@ -14,3 +14,9 @@ class Introductions(IntroductionsTemplate):
   def continue_to_night(self, **event_args):
     anvil.server.call('set_game_phase', phase='night')
     open_form('NightPhase')
+
+  def restart_game(self, **event_args):
+    c = confirm("Restart game?")
+    if c:
+      open_form('GameCreator')
+    

@@ -1,0 +1,6 @@
+container: {type: ColumnPanel}
+components:
+- type: Timer
+  properties: {interval: 60}
+  name: heartbeat
+  event_bindings: {tick: ping_server}

@@ -54,6 +54,10 @@ components:
       name: start_new_game_btn
       layout_properties: {grid_position: 'CASSZZ,WRRSRZ'}
       event_bindings: {click: go_to_start}
+  - type: form:Heartbeat
+    properties: {}
+    name: custom_2
+    layout_properties: {grid_position: 'AEZZLJ,PHXCVX'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

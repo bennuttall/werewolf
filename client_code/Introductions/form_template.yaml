@@ -22,6 +22,10 @@ components:
     name: card_2
     layout_properties: {grid_position: 'UVUQSN,VOCYLW'}
     components:
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_1
+      layout_properties: {grid_position: 'IOZDBK,FRBZNI'}
     - type: Button
       properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: true,
         foreground: '', visible: true, text: Continue, font_size: null, font: '',
@@ -30,6 +34,18 @@ components:
       name: continue_btn
       layout_properties: {grid_position: 'IOZDBK,JGOWFW'}
       event_bindings: {click: continue_to_night}
+    - type: Button
+      properties: {role: secondary-color, align: right, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Restart, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: 'fa:refresh'}
+      name: restart_btn
+      layout_properties: {grid_position: 'IOZDBK,CVNZAC'}
+      event_bindings: {click: restart_game}
+  - type: form:Heartbeat
+    properties: {}
+    name: custom_1
+    layout_properties: {grid_position: 'XKQDYI,EQMFSZ'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

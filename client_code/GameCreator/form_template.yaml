@@ -134,6 +134,10 @@ components:
       name: start_btn
       layout_properties: {grid_position: 'SLIUHB,BFGJWO'}
       event_bindings: {click: save_new_game}
+  - type: form:Heartbeat
+    properties: {}
+    name: custom_1
+    layout_properties: {grid_position: 'SWDWKS,UQWTYK'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

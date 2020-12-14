@@ -21,3 +21,7 @@ components:
     background: ''}
   name: villagers_list
   layout_properties: {grid_position: 'MAQFYP,MNSSDG'}
+- type: form:Heartbeat
+  properties: {}
+  name: custom_1
+  layout_properties: {grid_position: 'YQEKYC,HUBCAB'}
