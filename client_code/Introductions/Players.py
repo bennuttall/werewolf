@@ -11,3 +11,9 @@ class Players(PlayersTemplate):
     self.init_components(**properties)
     if self.item['lover'] is not None:
       self.lover.icon = 'fa:heart'
+
+  def delete_player(self, **event_args):
+    c = confirm(title="Are you sure you want to remove this player from the game?")
+    if c:
+      anvil.server.call('remove_player_from_game', player=self.item)
+      self.parent.parent.raise_event('x-show-page')

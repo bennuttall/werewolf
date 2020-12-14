@@ -70,11 +70,11 @@ def process_night_phase(killed_player_name, healed_player_name):
   if killed_player_name != healed_player_name:
     killed_player = app_tables.players.get(game=game, name=killed_player_name)
     killed_player.update(alive=False)
-    killed_players.append(killed_player['name'])
+    killed_players.append(killed_player)
     killed_lover = killed_player['lover']
     if killed_lover:
       killed_lover.update(alive=False)
-      killed_players.append(killed_lover['name'])
+      killed_players.append(killed_lover)
       
   game.update(phase='day')
       
@@ -86,11 +86,11 @@ def process_day_phase(lynched_player_name):
   killed_players = []
   killed_player = app_tables.players.get(game=game, name=lynched_player_name)
   killed_player.update(alive=False)
-  killed_players.append(killed_player['name'])
+  killed_players.append(killed_player)
   killed_lover = killed_player['lover']
   if killed_lover:
     killed_lover.update(alive=False)
-    killed_players.append(killed_lover['name'])
+    killed_players.append(killed_lover)
       
   game.update(phase='night')
       
@@ -113,8 +113,9 @@ def get_winner():
     return 'villagers'
   return False
   
-  
-  
+@anvil.server.callable
+def remove_player_from_game(player):
+  player.update(alive=False)
   
   
   

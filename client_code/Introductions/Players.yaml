@@ -27,6 +27,14 @@ components:
   layout_properties: {grid_position: 'FGEDQU,NDYSVV'}
   data_bindings:
   - {property: text, code: 'self.item[''profession'']'}
+- type: Button
+  properties: {role: secondary-color, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: 'fa:trash'}
+  name: delete_btn
+  layout_properties: {grid_position: 'FGEDQU,HRANKM'}
+  event_bindings: {click: delete_player}
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"UKNSYA":3,"SACLTK":17,"NQKVFX":10}'}
+  properties: {col_widths: '{"UKNSYA":4,"SACLTK":18,"NQKVFX":11,"NDYSVV":13,"HRANKM":14}'}
