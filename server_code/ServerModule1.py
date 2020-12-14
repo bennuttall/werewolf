@@ -105,7 +105,7 @@ def get_winner():
   if len(live_players) == 2 and all(player['lover'] is not None for player in live_players):
     set_game_phase('over')
     return 'lovers'
-  elif len(wolves) == len(villagers):
+  elif len(wolves) >= len(villagers):
     set_game_phase('over')
     return 'werewolves'
   elif len(wolves) == 0:
@@ -116,6 +116,9 @@ def get_winner():
 @anvil.server.callable
 def remove_player_from_game(player):
   player.update(alive=False)
+  lover = player['lover']
+  if lover is not None:
+    lover['lover'] = None
   
 @anvil.server.callable
 def ping():

@@ -3,9 +3,10 @@ container:
   properties: {col_widths: '{"UKNSYA":5,"SACLTK":15,"NQKVFX":16,"HJOIRF":17}'}
 components:
 - type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-    italic: false, background: '', bold: false, underline: false, icon: ''}
+  properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
   name: lover
   layout_properties: {grid_position: 'FGEDQU,UKNSYA'}
   data_bindings: []

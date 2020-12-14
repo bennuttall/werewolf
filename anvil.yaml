@@ -10,6 +10,32 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-sandb
 metadata: {}
 startup_form: DayPhase
 db_schema:
+- name: games
+  id: 94354
+  python_name: games
+  columns:
+    PDNP+yX9J3c=:
+      name: seer
+      type: bool
+      admin_ui: {order: 2, width: 200}
+    VxulshdbAaU=:
+      name: dt
+      type: datetime
+      admin_ui: {order: 0, width: 200}
+    f7ipWkxlWwI=:
+      name: healer
+      type: bool
+      admin_ui: {order: 1, width: 200}
+    l0+axU2_Br0=:
+      name: phase
+      type: string
+      admin_ui: {order: 4, width: 200}
+    qPFokFBgiW0=:
+      name: lovers
+      type: bool
+      admin_ui: {order: 3, width: 200}
+  access: {python_name: games, app_id: ZAF6VZLDTRRGBVO7, server: full, client: none,
+    table_mapping_name: null, table_mapping_id: null, table_id: 94354}
 - name: players
   id: 94355
   python_name: players
@@ -44,30 +70,4 @@ db_schema:
       table_id: 94355
   access: {python_name: players, app_id: ZAF6VZLDTRRGBVO7, server: full, client: full,
     table_mapping_name: null, table_mapping_id: null, table_id: 94355}
-- name: games
-  id: 94354
-  python_name: games
-  columns:
-    PDNP+yX9J3c=:
-      name: seer
-      type: bool
-      admin_ui: {order: 2, width: 200}
-    VxulshdbAaU=:
-      name: dt
-      type: datetime
-      admin_ui: {order: 0, width: 200}
-    f7ipWkxlWwI=:
-      name: healer
-      type: bool
-      admin_ui: {order: 1, width: 200}
-    l0+axU2_Br0=:
-      name: phase
-      type: string
-      admin_ui: {order: 4, width: 200}
-    qPFokFBgiW0=:
-      name: lovers
-      type: bool
-      admin_ui: {order: 3, width: 200}
-  access: {python_name: games, app_id: ZAF6VZLDTRRGBVO7, server: full, client: none,
-    table_mapping_name: null, table_mapping_id: null, table_id: 94354}
 renamed: true

@@ -29,6 +29,3 @@ class DayPhase(DayPhaseTemplate):
     else:
       form = 'NightPhase'
     open_form(form, players_killed=players_killed)
-
-
-
