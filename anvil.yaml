@@ -55,6 +55,10 @@ db_schema:
   id: 94837
   python_name: users
   columns:
+    cXui6+AQqaE=:
+      name: email_confirmation_key
+      type: string
+      admin_ui: {order: 7, width: 200}
     davZYg5MF78=:
       name: signed_up
       type: datetime
@@ -63,6 +67,14 @@ db_schema:
       name: remembered_logins
       type: simpleObject
       admin_ui: {order: 4, width: 200}
+    ejra4RpCO1I=:
+      name: password_hash
+      type: string
+      admin_ui: {order: 5, width: 200}
+    l2WfUwF_C7Y=:
+      name: confirmed_email
+      type: bool
+      admin_ui: {order: 6, width: 200}
     lG_R3eNFeeg=:
       name: enabled
       type: bool
