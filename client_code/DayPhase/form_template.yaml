@@ -83,7 +83,15 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
-  components: []
+  components:
+  - type: Button
+    properties: {role: primary-color, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: New game, font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
+    name: new_game_btn
+    layout_properties: {}
+    event_bindings: {click: start_new_game}
 - type: Label
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: Day phase, font_size: null, font: '', spacing_above: small, icon_align: left,

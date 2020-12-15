@@ -32,3 +32,7 @@ class DayPhase(DayPhaseTemplate):
     else:
       form = 'NightPhase'
     open_form(form, players_killed=players_killed)
+
+  def start_new_game(self, **event_args):
+    open_form('GameCreator')
+
