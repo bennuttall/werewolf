@@ -1,3 +1,6 @@
+import anvil.google.auth, anvil.google.drive, anvil.google.mail
+from anvil.google.drive import app_files
+import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
@@ -6,9 +9,17 @@ import anvil.server
 from datetime import datetime
 import random
 
+user = anvil.users.get_user(allow_remembered=True)
+
+@anvil.server.callable
+def get_latest_game():
+  games = list(app_tables.games.search(user=user))
+  if games:
+    return games[-1]
+
 @anvil.server.callable
 def save_new_game(players, num_wolves, healer, seer, lovers):
-  game = app_tables.games.add_row(dt=datetime.now(), healer=healer, seer=seer, lovers=lovers, phase='introductions')
+  game = app_tables.games.add_row(dt=datetime.now(), user=user, healer=healer, seer=seer, lovers=lovers, phase='introductions')
   for player in players:
     player['role'] = 'villager'
     player['lover'] = None
@@ -33,12 +44,6 @@ def save_new_game(players, num_wolves, healer, seer, lovers):
       this_lover_row = app_tables.players.get(game=game, name=lover['name'])
       other_lover_row = app_tables.players.get(game=game, name=lover['lover']['name'])
       this_lover_row.update(lover=other_lover_row)
-    
-@anvil.server.callable
-def get_latest_game():
-  games = list(app_tables.games.search())
-  if games:
-    return games[-1]
     
 @anvil.server.callable
 def get_game_players():
