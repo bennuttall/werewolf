@@ -89,13 +89,14 @@ def process_night_phase(killed_player_name, healed_player_name):
 def process_day_phase(lynched_player_name):
   game = get_latest_game()
   killed_players = []
-  killed_player = app_tables.players.get(game=game, name=lynched_player_name)
-  killed_player.update(alive=False)
-  killed_players.append(killed_player)
-  killed_lover = killed_player['lover']
-  if killed_lover:
-    killed_lover.update(alive=False)
-    killed_players.append(killed_lover)
+  if lynched_player_name != 'None':
+    killed_player = app_tables.players.get(game=game, name=lynched_player_name)
+    killed_player.update(alive=False)
+    killed_players.append(killed_player)
+    killed_lover = killed_player['lover']
+    if killed_lover:
+      killed_lover.update(alive=False)
+      killed_players.append(killed_lover)
       
   game.update(phase='night')
       
