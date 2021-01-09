@@ -16,7 +16,7 @@ class DayPhase(DayPhaseTemplate):
     self.players_killed.text = get_players_killed_str(players_killed)
     players = anvil.server.call('get_live_players')
     player_names = [player['name'] for player in players]
-    self.player_lynched.items = player_names
+    self.player_lynched.items = player_names + ['None']
 
   def enable_continue_btn(self, **event_args):
     self.continue_btn.enabled = self.player_lynched.selected_value is not None

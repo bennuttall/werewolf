@@ -70,8 +70,8 @@ class GameCreator(GameCreatorTemplate):
                       players=self.players.items,
                       num_wolves=int(self.num_wolves.selected_value),
                       healer=self.healer.checked,
-                      seer=self.healer.checked,
-                      lovers=self.healer.checked)
+                      seer=self.seer.checked,
+                      lovers=self.lovers.checked)
     open_form('Introductions')
 
 
